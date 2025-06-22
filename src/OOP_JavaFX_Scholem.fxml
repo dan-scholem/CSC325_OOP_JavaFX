@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -45,9 +47,9 @@
                      </MenuBar>
                   </top>
                   <left>
-                     <VBox prefHeight="568.0" prefWidth="122.0" BorderPane.alignment="CENTER">
+                     <VBox alignment="TOP_CENTER" prefHeight="568.0" prefWidth="122.0" BorderPane.alignment="CENTER">
                         <children>
-                           <ImageView fitHeight="101.0" fitWidth="103.0" pickOnBounds="true" preserveRatio="true"/>
+                           <ImageView fitHeight="101.0" fitWidth="103.0" pickOnBounds="true" preserveRatio="true" />
                         </children>
                      </VBox>
                   </left>
@@ -64,7 +66,19 @@
                      </TableView>
                   </center>
                   <right>
-                     <VBox prefHeight="568.0" prefWidth="144.0" BorderPane.alignment="CENTER" />
+                     <VBox alignment="TOP_CENTER" prefHeight="568.0" prefWidth="144.0" BorderPane.alignment="CENTER">
+                        <children>
+                           <TextField />
+                           <TextField />
+                           <TextField />
+                           <TextField />
+                           <TextField />
+                           <TextField />
+                           <Button mnemonicParsing="false" text="Clear" />
+                           <Button mnemonicParsing="false" text="Add" />
+                           <Button mnemonicParsing="false" text="Delete" />
+                           <Button mnemonicParsing="false" text="Edit" />
+                        </children></VBox>
                   </right>
                </BorderPane>
             </children></AnchorPane>
