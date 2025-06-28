@@ -18,6 +18,7 @@ public class OOP_JavaFX_Scholem extends Application {
     public void start(Stage primaryStage) {
 
         MenuBar menuBar = new MenuBar();
+        menuBar.setStyle("-fx-background-color: AD3D27;");
 
         Menu fileMenu = new Menu("File");
 
@@ -31,12 +32,14 @@ public class OOP_JavaFX_Scholem extends Application {
 
         VBox imageBox = new VBox();
         imageBox.setSpacing(10);
-        imageBox.setPrefSize(120, 560);
+        imageBox.setPrefSize(130, 560);
         imageBox.setAlignment(Pos.TOP_CENTER);
         imageBox.setPadding(new Insets(10, 5, 0, 10));
+        imageBox.setStyle("-fx-background-color: #AD8027;");
 
         VBox imageContainer = new VBox();
         imageContainer.setPrefSize(120, 120);
+        imageContainer.setStyle("-fx-background-color: #FFFFFF;");
 
         ImageView imageView = new ImageView();
         Image image = new Image("icons8-user-96.png");
@@ -59,22 +62,44 @@ public class OOP_JavaFX_Scholem extends Application {
         TableColumn<Student, String> majorCol = new TableColumn<>(headers[4]);
         TableColumn<Student, String> emailCol = new TableColumn<>(headers[5]);
 
+        idCol.setPrefWidth(40);
+        idCol.setResizable(false);
+        firstNameCol.setPrefWidth(120);
+        firstNameCol.setResizable(false);
+        lastNameCol.setPrefWidth(90);
+        lastNameCol.setResizable(false);
+        departmentCol.setPrefWidth(120);
+        departmentCol.setResizable(false);
+        majorCol.setPrefWidth(90);
+        majorCol.setResizable(false);
+        emailCol.setPrefWidth(80);
+        emailCol.setResizable(false);
+
+
         tableView.getColumns().addAll(idCol, firstNameCol, lastNameCol, departmentCol, majorCol, emailCol);
 
         VBox formPane = new VBox(6);
-        formPane.setPrefSize(200, 620);
+        formPane.setPrefSize(215, 620);
         formPane.setAlignment(Pos.CENTER);
-        formPane.setPadding(new Insets(10));
+        formPane.setPadding(new Insets(5));
+        formPane.setSpacing(35);
+        formPane.setStyle("-fx-background-color: #61D415;");
 
-        String[] prompts = {"First Name", "Last Name", "Department", "Major", "Email"};
+        VBox formContainer = new VBox();
+        formContainer.setSpacing(6);
+        formContainer.setAlignment(Pos.TOP_CENTER);
+
+        String[] prompts = {"First Name", "Last Name", "Department", "Major", "Email", "imageURL"};
 
         for(String prompt : prompts) {
             TextField field = new TextField();
             field.setPromptText(prompt);
-            field.setScaleX(0.9);
-            field.setFont(new Font(14));
-            formPane.getChildren().add(field);
+            field.setScaleX(1);
+            field.setFont(new Font(12));
+            formContainer.getChildren().add(field);
         }
+
+        formPane.getChildren().add(formContainer);
 
         VBox buttonBox = new VBox(16);
         buttonBox.setAlignment(Pos.BOTTOM_CENTER);
@@ -83,8 +108,9 @@ public class OOP_JavaFX_Scholem extends Application {
         String[] buttonLabels = {"Clear", "Add", "Delete", "Edit"};
         for(String buttonLabel : buttonLabels) {
             Button button = new Button(buttonLabel);
-            button.setPrefSize(180, 40);
+            button.setPrefSize(200, 45);
             button.setFont(new Font(16));
+            button.setStyle("-fx-background-radius: 10; -fx-background-color: #AD8027;");
             buttonBox.getChildren().add(button);
         }
 
@@ -92,9 +118,11 @@ public class OOP_JavaFX_Scholem extends Application {
 
         HBox bottomGray = new HBox();
         bottomGray.setPrefSize(814,30);
+        bottomGray.setStyle("-fx-background-color: #999999;");
 
         HBox bottomBrown = new HBox();
         bottomBrown.setPrefSize(814,7);
+        bottomBrown.setStyle("-fx-background-color: #AD8027;");
 
         VBox bottomBox = new VBox(bottomGray, bottomBrown);
 
@@ -105,14 +133,12 @@ public class OOP_JavaFX_Scholem extends Application {
         root.setLeft(imageBox);
         root.setRight(formPane);
 
-        Scene scene = new Scene(root, 900, 605);
+        Scene scene = new Scene(root, 900, 600);
+        scene.getStylesheets().add("style.css");
 
         primaryStage.setScene(scene);
         primaryStage.setTitle("OOP JavaFX Scholem");
         primaryStage.show();
     }
 
-    //public static void main(String[] args) {
-    //    launch(args);
-    //}
 }
